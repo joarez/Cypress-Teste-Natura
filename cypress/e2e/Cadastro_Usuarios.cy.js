@@ -9,7 +9,7 @@ const Email = faker.internet.email();
 const Sobrenome = faker.name.lastName();
 const number = faker.internet.password(20, false, /[a-zA-Z0-9!@#$%^&*()]/i,'')
 const CPF = faker.helpers.replaceSymbolWithNumber('###### ####')
-const cellphone = faker.phone.number('11-#####-###') 
+const cellphone = faker.phone.number('##-9#####-###') 
 
 describe("Cadastros", () => {
     it('Acessando Pagina', () => {  
@@ -40,18 +40,16 @@ describe("Cadastros", () => {
       cy.get(Elements.CheckBox_Cadastro.CheckBox_novidades_SMS).click();
       cy.get(Elements.CheckBox_Cadastro.CheckBox_Minhas_Informacao).click();
       cy.get(Elements.CheckBox_Cadastro.CheckBox_Termos).click();
-      cy.get(Elements.Botoes_Cadastros.BtnCriar_Conta).click();
-
-        //should('have.length', 3).click();
+      cy.get(Elements.Botoes_Cadastros.BtnCriar_Conta).click(); 
       cy.wait(100);
       cy.get('.MuiTypography-colorError').then(($el) => {
         if ($el.length) {
           cy.get('.MuiTypography-colorError').should('exist');
           cy.visit('https://www.natura.com.br/login?');
          } else {
-          cy.get(Elements.TextoIframe.Text_Cep).should('be.visible',{timeout: 2000})
-         }
-      });       
+        cy.get(Elements.TextoIframe.Text_Cep).should('be.visible',{timeout: 2000})
+        }
+     });       
 
     })
 });
