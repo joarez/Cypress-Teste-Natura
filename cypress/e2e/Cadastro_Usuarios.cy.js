@@ -2,7 +2,7 @@
 
 import {faker } from '@faker-js/faker'
 import Elements from '../support/Elements';
-//faker.locale = 'pt_BR';
+faker.locale = 'pt_BR';
 
 const Name = faker.name.firstName();
 const Email = faker.internet.email();
@@ -49,7 +49,7 @@ describe("Cadastros", () => {
          } else {
         cy.get(Elements.TextoIframe.Text_Cep).should('be.visible',{timeout: 2000})
         }
-     });       
+      });       
 
     })
 });
