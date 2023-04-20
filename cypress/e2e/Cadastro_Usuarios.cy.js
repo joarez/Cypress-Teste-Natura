@@ -7,7 +7,7 @@ import Elements from '../support/Elements';
 const Name = faker.name.firstName();
 const Email = faker.internet.email();
 const Sobrenome = faker.name.lastName();
-const number = faker.internet.password(20,RegExp = /\w/, '!-$','A-z09')
+const number = faker.internet.password(20, false, /[a-zA-Z0-9!@#$%^&*()]/i,'')
 const CPF = faker.helpers.replaceSymbolWithNumber('###### ####')
 const cellphone = faker.phone.number('11-#####-###') 
 
@@ -35,12 +35,14 @@ describe("Cadastros", () => {
          } 
       }); 
       cy.get(Elements.Input_Cadastro.DataNascimento).type('20.10.2000');
-      cy.get(Elements.RadioBotton.GêneroFem).click();
+      cy.get(Elements.RadioBotton.GêneroFem).contains('Feminino').click();
       cy.get(Elements.Input_Cadastro.cellphone).type(cellphone);
       cy.get(Elements.CheckBox_Cadastro.CheckBox_novidades_SMS).click();
       cy.get(Elements.CheckBox_Cadastro.CheckBox_Minhas_Informacao).click();
       cy.get(Elements.CheckBox_Cadastro.CheckBox_Termos).click();
       cy.get(Elements.Botoes_Cadastros.BtnCriar_Conta).click();
+
+        //should('have.length', 3).click();
       cy.wait(100);
       cy.get('.MuiTypography-colorError').then(($el) => {
         if ($el.length) {

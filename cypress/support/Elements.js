@@ -3,7 +3,7 @@ export const Elements = {
         pop_up_cookies: '#onetrust-accept-btn-handler',
         HambugMenu: '.natds5 > .MuiButtonBase-root > .MuiIconButton-label > .material-icons',
         Cadastrar_se: '.MuiTypography-body2 > .MuiTypography-root',
-        BtnCriar_Conta: '.natds624 > .MuiButtonBase-root'
+        BtnCriar_Conta: '.natds626 > .MuiButtonBase-root > .MuiButton-label'
         
     },
 
@@ -19,7 +19,7 @@ export const Elements = {
     },
 
     RadioBotton: {
-        GêneroFem: '.MuiFormGroup-root > :nth-child(1) > .MuiButtonBase-root > .MuiIconButton-label > .natds576'
+        GêneroFem: '.MuiFormGroup-root > :nth-child(1) > .MuiTypography-root'
         //cy.get('.MuiFormGroup-root > :nth-child(1) > .MuiButtonBase-root > .MuiIconButton-label > .natds576')
     },
 
